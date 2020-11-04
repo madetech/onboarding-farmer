@@ -9,7 +9,7 @@ window.addEventListener('load', (event) => {
 });
 
 function calculateTransportCost(amountOfCornBags) {
-    return amountOfCornBags * 50 / 100;
+    return Math.max(0,(amountOfCornBags * 50 / 100) - 0.25);
 }
 
 module.exports = {
