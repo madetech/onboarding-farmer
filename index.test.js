@@ -14,6 +14,26 @@ describe("handler", () => {
         ]);
     });
 
+    it("calculates transportation plan for 2 corn bag and 0 geese", async () => {
+        const result = calculatePlan(2, 0);
+        expect(result.possible).toBe(true);
+        expect(result.cost).toBe(0.75);
+        expect(result.steps).toEqual([
+            {
+                direction: "market",
+                carrying: "corn"
+            },
+            {
+                direction: "farm",
+                carrying: "nothing"
+            },
+            {
+                direction: "market",
+                carrying: "corn"
+            }
+        ]);
+    });
+
     it("calculates correct transportation costs for 2 bags", async () => {
         const result = calculateTransportCostWhenYouOnlyHaveCornBags(2);
         expect(result).toBe(0.75);

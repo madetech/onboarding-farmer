@@ -8,30 +8,43 @@ window.addEventListener('load', (event) => {
     });
 });
 
+function arrayOfN(n) {
+    return Array(n).fill();
+}
+
+function isEven(n) {
+    return n % 2 === 0 
+}
+
 function calculateTransportCostWhenYouOnlyHaveCornBags(amountOfCornBags) {
     return Math.max(0,(amountOfCornBags * 50 / 100) - 0.25);
 }
 
 function calculatePlan(cornBags, geese) {
-    let result;
-    if (geese == 0) {
-        result = {
+    if(geese === 0 && cornBags === 0) {
+        return {
+            steps: [
+                {
+                    direction: "market",
+                    carrying: "nothing"
+                }
+            ],
+            possible: true,
+            cost: 0.25
+        };
+    }
+    if (geese === 0) {
+        return {
             cost: calculateTransportCostWhenYouOnlyHaveCornBags(cornBags),
-            possible: true
+            possible: true,
+            steps: arrayOfN(cornBags * 2 - 1).map((_, i) => ({
+                direction: isEven(i) ? 'market' : 'farm',
+                carrying: isEven(i) ? 'corn': 'nothing'
+            }))
         }
-        let steps = [];
     }
 
-    return {
-        steps: [
-            {
-                direction: "market",
-                carrying: "nothing"
-            }
-        ],
-        possible: true,
-        cost: 0.25
-    };
+    
 }
 
 module.exports = {
