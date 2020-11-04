@@ -4,17 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Corn Op</title>
-<script>
-    window.addEventListener('load', (event) => {
-        const bagsInput = document.getElementById('amount');
-        const form = document.getElementById('cornForm');
-        const resultP = document.getElementById('result');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            resultP.innerText = `£${(bagsInput.value * 50 / 100).toFixed(2)}`
-        });
-    });
-</script>
+<script src="index.js"></script>
 <style>
 body {
     font-size: 24px;
