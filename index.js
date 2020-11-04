@@ -13,6 +13,15 @@ function calculateTransportCostWhenYouOnlyHaveCornBags(amountOfCornBags) {
 }
 
 function calculatePlan(cornBags, geese) {
+    let result;
+    if (geese == 0) {
+        result = {
+            cost: calculateTransportCostWhenYouOnlyHaveCornBags(cornBags),
+            possible: true
+        }
+        let steps = [];
+    }
+
     return {
         steps: [
             {
