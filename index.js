@@ -7,3 +7,7 @@ window.addEventListener('load', (event) => {
         resultP.innerText = `£${(bagsInput.value * 50 / 100).toFixed(2)}`
     });
 });
+
+export function calculateTransportCost(amountOfCornBags) {
+    return amountOfCornBags * 50 / 100;
+}
