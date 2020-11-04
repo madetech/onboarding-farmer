@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corn Op</title>
+<script>
+    window.addEventListener('load', (event) => {
+        const bagsInput = document.getElementById('amount');
+        const form = document.getElementById('cornForm');
+        const resultP = document.getElementById('result');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            resultP.innerText = `£${(bagsInput.value * 50 / 100).toFixed(2)}`
+        });
+    });
+</script>
+</head>
+<body>
+    <form id="cornForm">
+        <label for="amount">Enter amount o corn bags: </label>
+        <input type="number" id="amount"></input>
+        <input type="submit">
+    </form>
+    <label for="result">Cost</label>
+    <p id="result"></p>
+</body>
+</html>
