@@ -1,4 +1,4 @@
-import {calculateTransportCost} from './index.js'
+const { calculateTransportCost } = require('./index.js');
 
 describe("handler", () => {
     it("calculates correct transportation cost", async () => {
