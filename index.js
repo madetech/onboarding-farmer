@@ -5,8 +5,8 @@ window.addEventListener('load', (event) => {
     const resultP = document.getElementById('result');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const corn = parseInt(bagsInput.value);
-        const geese = parseInt(geeseInput.value);
+        const corn = parseInt(bagsInput.value || 0);
+        const geese = parseInt(geeseInput.value || 0);
         const result = calculatePlan(corn, geese);
 
         if(!result.possible) {
@@ -15,7 +15,7 @@ window.addEventListener('load', (event) => {
         }
 
         const planMessage = 'Here is your travel plan: \n' + result.steps.map(({direction, carrying}) => `Travel to ${direction} with ${carrying}`).join('\n');
-        const costMessage = 'In total this will cost:' + result.cost;
+        const costMessage = 'In total this will cost: ' + result.cost;
 
 
         resultP.innerText = planMessage + '\n\n' + costMessage;
