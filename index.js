@@ -22,46 +22,44 @@ function calculateCostWhenYouOnlyCarryOneType(amountOfCornBags) {
 
 function calculatePlan(cornBags, geese) {
 
-    let result = {}
-
-
-
-    if ((geese === 1 || cornBags === 1) && (Math.abs(geese-cornBags) > 1)) {
+    if((cornBags <= 1 && geese <= 2) || (cornBags <= 2 && geese <= 1) || cornBags === 0 || geese === 0) {
+        return {possible: true}
+    } else {
         return {possible: false}
     }
-
-    if(geese === 0 && cornBags === 0) {
-        return {
-            steps: [
-                {
-                    direction: "market",
-                    carrying: "nothing"
-                }
-            ],
-            possible: true,
-            cost: 0.25
-        };
-    }
-    if (geese === 0) {
-        return {
-            cost: calculateCostWhenYouOnlyCarryOneType(cornBags),
-            possible: true,
-            steps: arrayOfN(cornBags * 2 - 1).map((_, i) => ({
-                direction: isEven(i) ? 'market' : 'farm',
-                carrying: isEven(i) ? 'corn': 'nothing'
-            }))
-        }
-    }
-    if (cornBags === 0) {
-        return {
-            cost: calculateCostWhenYouOnlyCarryOneType(geese),
-            possible: true,
-            steps: arrayOfN(geese * 2 - 1).map((_, i) => ({
-                direction: isEven(i) ? 'market' : 'farm',
-                carrying: isEven(i) ? 'goose': 'nothing'
-            }))
-        }
-    }
+    
+    // if(geese === 0 && cornBags === 0) {
+    //     return {
+    //         steps: [
+    //             {
+    //                 direction: "market",
+    //                 carrying: "nothing"
+    //             }
+    //         ],
+    //         possible: true,
+    //         cost: 0.25
+    //     };
+    // }
+    // if (geese === 0) {
+    //     return {
+    //         cost: calculateCostWhenYouOnlyCarryOneType(cornBags),
+    //         possible: true,
+    //         steps: arrayOfN(cornBags * 2 - 1).map((_, i) => ({
+    //             direction: isEven(i) ? 'market' : 'farm',
+    //             carrying: isEven(i) ? 'corn': 'nothing'
+    //         }))
+    //     }
+    // }
+    // if (cornBags === 0) {
+    //     return {
+    //         cost: calculateCostWhenYouOnlyCarryOneType(geese),
+    //         possible: true,
+    //         steps: arrayOfN(geese * 2 - 1).map((_, i) => ({
+    //             direction: isEven(i) ? 'market' : 'farm',
+    //             carrying: isEven(i) ? 'goose': 'nothing'
+    //         }))
+    //     }
+    // }
 
 }
 
