@@ -7,7 +7,11 @@ window.addEventListener('load', (event) => {
         e.preventDefault();
         const corn = parseInt(bagsInput.value);
         const geese = parseInt(geeseInput.value);
-        result.innerText = JSON.stringify(calculatePlan(corn, geese), null, 3);
+        const result = calculatePlan(corn, geese);
+
+        if(!result.possible) {
+            resultP.innerText = 'This is not possible without losing corn'
+        }
     });
 });
 
