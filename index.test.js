@@ -126,41 +126,159 @@ describe("plan steps", () => {
         ]);
     });
 
-    // it("calculates transportation plan for 2 corn bag and 0 geese", async () => {
-    //     const result = calculatePlan(2, 0);
-    //     expect(result.cost).toBe(0.75);
-    //     expect(result.steps).toEqual([
-    //         {
-    //             direction: "market",
-    //             carrying: "corn"
-    //         },
-    //         {
-    //             direction: "farm",
-    //             carrying: "nothing"
-    //         },
-    //         {
-    //             direction: "market",
-    //             carrying: "corn"
-    //         }
-    //     ]);
-    // });
+    it("calculates transportation plan for 1 corn bag and 2 geese", async () => {
+        const result = calculatePlan(1, 2);
+        expect(result.steps).toEqual([
+            {
+                direction: "market",
+                carrying: "corn"
+            },
+            {
+                direction: "farm",
+                carrying: "nothing"
+            },
+            {
+                direction: "market",
+                carrying: "goose"
+            },
+            {
+                direction: "farm",
+                carrying: "corn"
+            },
+            {
+                direction: "market",
+                carrying: "goose"
+            },
+            {
+                direction: "farm",
+                carrying: "nothing"
+            },
+            {
+                direction: "market",
+                carrying: "corn"
+            }
+        ]);
+    });
 
-    // it("calculates transportation plan for 0 corn bag and 2 geese", async () => {
-    //     const result = calculatePlan(0, 2);
-    //     expect(result.cost).toBe(0.75);
-    //     expect(result.steps).toEqual([
-    //         {
-    //             direction: "market",
-    //             carrying: "goose"
-    //         },
-    //         {
-    //             direction: "farm",
-    //             carrying: "nothing"
-    //         },
-    //         {
-    //             direction: "market",
-    //             carrying: "goose"
-    //         }
-    //     ]);
-    // });
+    it("calculates transportation plan for 2 corn bag and 1 geese", async () => {
+        const result = calculatePlan(2, 1);
+        expect(result.steps).toEqual([
+            {
+                direction: "market",
+                carrying: "goose"
+            },
+            {
+                direction: "farm",
+                carrying: "nothing"
+            },
+            {
+                direction: "market",
+                carrying: "corn"
+            },
+            {
+                direction: "farm",
+                carrying: "goose"
+            },
+            {
+                direction: "market",
+                carrying: "corn"
+            },
+            {
+                direction: "farm",
+                carrying: "nothing"
+            },
+            {
+                direction: "market",
+                carrying: "goose"
+            }
+        ]);
+    });
+
+    it("calculates transportation plan for 2 corn bag and 0 geese", async () => {
+        const result = calculatePlan(2, 0);
+        expect(result.steps).toEqual([
+            {
+                direction: "market",
+                carrying: "corn"
+            },
+            {
+                direction: "farm",
+                carrying: "nothing"
+            },
+            {
+                direction: "market",
+                carrying: "corn"
+            }
+        ]);
+    });
+
+    it("calculates transportation plan for 0 corn bag and 2 geese", async () => {
+        const result = calculatePlan(0, 2);
+        expect(result.steps).toEqual([
+            {
+                direction: "market",
+                carrying: "goose"
+            },
+            {
+                direction: "farm",
+                carrying: "nothing"
+            },
+            {
+                direction: "market",
+                carrying: "goose"
+            }
+        ]);
+    });
+
+    it("calculates transportation plan for 0 corn bag and 3 geese", async () => {
+        const result = calculatePlan(0, 3);
+        expect(result.steps).toEqual([
+            {
+                direction: "market",
+                carrying: "goose"
+            },
+            {
+                direction: "farm",
+                carrying: "nothing"
+            },
+            {
+                direction: "market",
+                carrying: "goose"
+            },
+            {
+                direction: "farm",
+                carrying: "nothing"
+            },
+            {
+                direction: "market",
+                carrying: "goose"
+            }
+        ]);
+    });
+
+    it("calculates transportation plan for 3 corn bag and 0 geese", async () => {
+        const result = calculatePlan(3, 0);
+        expect(result.steps).toEqual([
+            {
+                direction: "market",
+                carrying: "corn"
+            },
+            {
+                direction: "farm",
+                carrying: "nothing"
+            },
+            {
+                direction: "market",
+                carrying: "corn"
+            },
+            {
+                direction: "farm",
+                carrying: "nothing"
+            },
+            {
+                direction: "market",
+                carrying: "corn"
+            }
+        ]);
+    });
 })
