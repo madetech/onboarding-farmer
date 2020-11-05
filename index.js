@@ -1,10 +1,13 @@
 window.addEventListener('load', (event) => {
-    const bagsInput = document.getElementById('amount');
-    const form = document.getElementById('cornForm');
+    const bagsInput = document.getElementById('corn');
+    const geeseInput = document.getElementById('geese');
+    const form = document.getElementById('form');
     const resultP = document.getElementById('result');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        // todo
+        const corn = parseInt(bagsInput.value);
+        const geese = parseInt(geeseInput.value);
+        result.innerText = JSON.stringify(calculatePlan(corn, geese), null, 3);
     });
 });
 
@@ -158,6 +161,8 @@ function calculatePlan(cornBags, geese) {
     return {possible: false}
 }
 
-module.exports = {
-    calculatePlan
+if(typeof module !== 'undefined') {
+    module.exports = {
+        calculatePlan
+    }
 }
