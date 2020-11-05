@@ -353,7 +353,7 @@ describe('boat capacity of two', () => {
     });
 
     it("calculates transportation plan for 1 corn bags and 1 geese with a boat having capacity 2", async () => {
-        const result = calculatePlan(1, 0, 2);
+        const result = calculatePlan(1, 1, 2);
         expect(result.steps).toEqual([
             {
                 direction: "market",
@@ -361,4 +361,42 @@ describe('boat capacity of two', () => {
             }
         ]);
     });
+
+    it("calculates transportation plan for 0 corn bags and 2 geese with a boat having capacity 2", async () => {
+        const result = calculatePlan(0, 2, 2);
+        expect(result.steps).toEqual([
+            {
+                direction: "market",
+                carrying: ["goose", "goose"]
+            }
+        ]);
+    });
+
+    it("calculates transportation plan for 2 corn bags and 0 geese with a boat having capacity 2", async () => {
+        const result = calculatePlan(2, 0, 2);
+        expect(result.steps).toEqual([
+            {
+                direction: "market",
+                carrying: ["corn", "corn"]
+            }
+        ]);
+    });
+
+    // it("calculates transportation plan for 2 corn bags and 1 geese with a boat having capacity 2", async () => {
+    //     const result = calculatePlan(2, 1, 2);
+    //     expect(result.steps).toEqual([
+    //         {
+    //             direction: "market",
+    //             carrying: ["corn", "corn"]
+    //         },
+    //         {
+    //             direction: "farm",
+    //             carrying: []
+    //         },
+    //         {
+    //             direction: "market",
+    //             carrying: ["goose"]
+    //         }
+    //     ]);
+    // });
 });
