@@ -22,24 +22,71 @@ function calculateCostWhenYouOnlyCarryOneType(amountOfCornBags) {
 
 function calculatePlan(cornBags, geese) {
 
+    if(geese === 0 && cornBags === 0) {
+        return {
+            steps: [
+                {
+                    direction: "market",
+                    carrying: "nothing"
+                }
+            ],
+            possible: true,
+        };
+    }
+
+    if(geese === 0 && cornBags === 1) {
+        return {
+            steps: [
+                {
+                    direction: "market",
+                    carrying: "corn"
+                }
+            ],
+            possible: true,
+        };
+    }
+
+    if(geese === 1 && cornBags === 0) {
+        return {
+            steps: [
+                {
+                    direction: "market",
+                    carrying: "goose"
+                }
+            ],
+            possible: true,
+        };
+    }
+
+    if(geese === 1 && cornBags === 1) {
+        return {
+            steps: [
+                {
+                    direction: "market",
+                    carrying: "goose"
+                },
+                {
+                    direction: "farm",
+                    carrying: "nothing"
+                },
+                {
+                    direction: "market",
+                    carrying: "corn"
+                }
+            ],
+            possible: true,
+        };
+    }
+
     if((cornBags <= 1 && geese <= 2) || (cornBags <= 2 && geese <= 1) || cornBags === 0 || geese === 0) {
         return {possible: true}
     } else {
         return {possible: false}
     }
     
-    // if(geese === 0 && cornBags === 0) {
-    //     return {
-    //         steps: [
-    //             {
-    //                 direction: "market",
-    //                 carrying: "nothing"
-    //             }
-    //         ],
-    //         possible: true,
-    //         cost: 0.25
-    //     };
-    // }
+
+
+    
     // if (geese === 0) {
     //     return {
     //         cost: calculateCostWhenYouOnlyCarryOneType(cornBags),
