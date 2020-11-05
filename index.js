@@ -14,9 +14,11 @@ window.addEventListener('load', (event) => {
             return;
         }
 
-        const planMessage = result.steps.map(({direction, carrying}) => `Travel to ${direction} with ${carrying}`).join('\n');
+        const planMessage = 'Here is your travel plan: \n' + result.steps.map(({direction, carrying}) => `Travel to ${direction} with ${carrying}`).join('\n');
+        const costMessage = 'In total this will cost:' + result.cost;
 
-        resultP.innerText = 'Here is your travel plan: \n' + planMessage;
+
+        resultP.innerText = planMessage + '\n\n' + costMessage;
 
     });
 });
