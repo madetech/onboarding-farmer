@@ -35,7 +35,7 @@ function getStepsCost(steps) {
     return steps.length * 0.25;
 }
 
-function calculatePlan(cornBags, geese) {
+function calculatePlan(cornBags, geese, boatCapacity = 1) {
 
     if (geese === 2 && cornBags === 1) {
         const steps = [
