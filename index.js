@@ -11,7 +11,13 @@ window.addEventListener('load', (event) => {
 
         if(!result.possible) {
             resultP.innerText = 'This is not possible without losing corn'
+            return;
         }
+
+        const planMessage = result.steps.map(({direction, carrying}) => `Travel to ${direction} with ${carrying}`).join('\n');
+
+        resultP.innerText = 'Here is your travel plan: \n' + planMessage;
+
     });
 });
 
