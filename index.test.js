@@ -281,4 +281,39 @@ describe("plan steps", () => {
             }
         ]);
     });
-})
+});
+
+describe("costs", () => {
+    it("calculates cost when travelling to market without animals to show off app", async () => {
+        const result = calculatePlan(0, 0);
+        expect(result.cost).toBe(0.25);
+    });
+    it("calculates cost for 1 corn bag and 0 geese", async () => {
+        const result = calculatePlan(1, 0);
+        expect(result.cost).toBe(0.25);
+    });
+    it("calculates cost for 0 corn bag and 1 geese", async () => {
+        const result = calculatePlan(0, 1);
+        expect(result.cost).toBe(0.25);
+    });
+    it("calculates cost for 1 corn bag and 1 geese", async () => {
+        const result = calculatePlan(1, 1);
+        expect(result.cost).toBe(0.75);
+    });
+    it("calculates cost for 2 corn bag and 1 geese", async () => {
+        const result = calculatePlan(2, 1);
+        expect(result.cost).toBe(1.75);
+    });
+    it("calculates cost for 1 corn bag and 2 geese", async () => {
+        const result = calculatePlan(1, 2);
+        expect(result.cost).toBe(1.75);
+    });
+    it("calculates cost for 0 corn bag and 15 geese", async () => {
+        const result = calculatePlan(0, 15);
+        expect(result.cost).toBe(7.25);
+    });
+    it("calculates cost for 15 corn bag and 0 geese", async () => {
+        const result = calculatePlan(0, 15);
+        expect(result.cost).toBe(7.25);
+    });
+});
