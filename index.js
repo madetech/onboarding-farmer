@@ -21,9 +21,15 @@ function calculateCostWhenYouOnlyCarryOneType(amountOfCornBags) {
 }
 
 function calculatePlan(cornBags, geese) {
-    if (geese > 1 && cornBags > 0) {
+
+    let result = {}
+
+
+
+    if ((geese === 1 || cornBags === 1) && (Math.abs(geese-cornBags) > 1)) {
         return {possible: false}
     }
+
     if(geese === 0 && cornBags === 0) {
         return {
             steps: [
@@ -56,6 +62,7 @@ function calculatePlan(cornBags, geese) {
             }))
         }
     }
+
 }
 
 module.exports = {
