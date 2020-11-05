@@ -65,4 +65,9 @@ describe("handler", () => {
             }
         ]);
     });
+
+    it("calculates transportation plan for 2 corn bags and 2 geese", async () => {
+        const result = calculatePlan(2, 2);
+        expect(result.possible).toBe(false);
+    });
 })

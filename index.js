@@ -21,6 +21,9 @@ function calculateCostWhenYouOnlyCarryOneType(amountOfCornBags) {
 }
 
 function calculatePlan(cornBags, geese) {
+    if (geese > 1 && cornBags > 0) {
+        return {possible: false}
+    }
     if(geese === 0 && cornBags === 0) {
         return {
             steps: [
